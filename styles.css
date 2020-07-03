@@ -1,0 +1,36 @@
+.head{
+  max-width: 500px;
+  border: 1px black solid;
+  border-radius: 5px;
+  box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+  text-align: center;
+  margin: 0 auto;
+  font-family: arial;
+  margin-bottom: 30px;
+}
+.main{
+  max-width: 500px;
+  border: 1px black solid;
+  border-radius: 5px;
+  box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+  text-align: center;
+  margin: 0 auto;
+  font-family: arial;
+}
+.icon{
+  height: 20px;
+}
+.underline{
+  text-decoration: underline;
+}
+#trinket1{
+  vertical-align: middle;
+}
+p{
+  margin: 5px;
+}
+.clean{
+  margin: 0 auto;
+  width: 80%;
+  text-align: left;
+}
