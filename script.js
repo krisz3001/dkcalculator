@@ -32,6 +32,9 @@ function calculate(){
   else if(id('mastery').value > 20000) id('mastery').value = 20000;
   if(id('ap_from_gear').value < 0) id('ap_from_gear').value = 0;
   else if(id('ap_from_gear').value > 1000) id('ap_from_gear').value = 1000;
+  id('strength').value = id('strength').value.replace(/[^0-9]/g, '');
+  id('mastery').value = id('mastery').value.replace(/[^0-9]/g, '');
+  id('ap_from_gear').value = id('ap_from_gear').value.replace(/[^0-9]/g, '');
   if(id('level_select').options[id('level_select').selectedIndex].value == 80){
     id('t1_select').options[0].selected = true;
     id('t2_select').options[0].selected = true;
