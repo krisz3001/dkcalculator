@@ -24,6 +24,16 @@ function theme_switch(){
   theme();
   localStorage.setItem('theme', mode);
 }
+function onlynumber(e){
+  var theEvent = e || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode(key);
+  var regex = /[^0-9]/g;
+  if(regex.test(key)){
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
 function calculate(){
   //Exploit Proof Input
   if(id('strength').value < 0) id('strength').value = 0;
