@@ -34,6 +34,9 @@ function onlynumber(e){
     if(theEvent.preventDefault) theEvent.preventDefault();
   }
 }
+function nopaste(e){
+  e.preventDefault();
+}
 function calculate(){
   //Exploit Proof Input
   if(id('strength').value < 0) id('strength').value = 0;
