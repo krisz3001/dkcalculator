@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./img/dk.jpg">
+    <title>DK Calculator</title>
+    <script src="script.js"></script>
+  </head>
+  <body class="body_light" id="body" onload="theme()">
+    <img src="./img/dk.jpg" style="display: none;">
+    <img src="./img/switch.png" style="width: 40px; position: absolute; top: 0; float: right; margin-top: 8px; cursor: pointer;" onclick="theme_switch()" id="theme_switch" title="Light Mode / Dark Mode">
+    <div class="box_light" id="head">
+      <h1>UH DK Calculator 5.4.8</h1>
+    </div>
+    <div class="box_light" id="main">
+      <h2 class="underline">Basic Information</h2>
+        <div class="left">
+          <p><label for="level">Level:</label><select id="level_select" oninput="calculate()" style="float: right;">
+            <option value="80">80</option>
+            <option value="90" selected>90</option>
+          </select></p>
+          <p><label for="strength">Strength:</label><input type="number" id="strength" oninput="calculate()"></p>
+          <p><label for="mastery">Mastery (Without Amplify):</label><input type="number" id="mastery" oninput="calculate()"></p>
+          <p id="plus_ap" style="display: none;"><label for="ap_from_gear">Attack Power (From Gear):</label><input type="number" id="ap_from_gear" oninput="calculate()"></p>
+        </div>
+      <h2 class="underline">Trinkets</h2>
+        <div class="left">
+          <!--Trinket1-->
+          <p>
+            <label for="t1_select" style="font-weight: bold;">Trinket 1:</label>
+            <select name="t1_select" id="t1_select" oninput="calculate()">
+              <option disabled selected id="default1">-- select --</option>
+              <option value="brutal_talisman" id="brutal_talisman1">Brutal Talisman of the Shado-Pan Assault</option>
+              <option value="feather" id="feather_n1">Fabled Feather of Ji-Kun (N 2/2)</option>
+              <option value="feather" id="feather_hc1">Fabled Feather of Ji-Kun (HC 2/2)</option>
+              <option value="galakras" id="galakras_n1">Evil Eye of Galakras (N 4/4)</option>
+              <option value="galakras" id="galakras_hc1">Evil Eye of Galakras (HC 4/4)</option>
+              <option value="thok" id="thok_n1">Thok's Tail Tip (N 4/4)</option>
+              <option value="thok" id="thok_hc1">Thok's Tail Tip (HC 4/4)</option>
+            </select>
+          </p>
+          <p><input type="checkbox" id="t1_toggle" oninput="calculate()" checked><label for="t1_toggle">Use Proc For Calculation</label></p>
+          <div style="display: none;" id="t1_mod_box"><p><input type="checkbox" id="t1_mod" oninput="calculate()"><label for="t1_mod" id="t1_mod_label"></label></p></div><br>
+          <!--Trinket2-->
+          <p>
+            <label for="t2_select" style="font-weight: bold;">Trinket 2:</label>
+            <select name="t2_select" id="t2_select" oninput="calculate()">
+              <option disabled selected id="default2">-- select --</option>
+              <option value="brutal_talisman" id="brutal_talisman2">Brutal Talisman of the Shado-Pan Assault</option>
+              <option value="feather" id="feather_n2">Fabled Feather of Ji-Kun (N 2/2)</option>
+              <option value="feather" id="feather_hc2">Fabled Feather of Ji-Kun (HC 2/2)</option>
+              <option value="galakras" id="galakras_n2">Evil Eye of Galakras (N 4/4)</option>
+              <option value="galakras" id="galakras_hc2">Evil Eye of Galakras (HC 4/4)</option>
+              <option value="thok" id="thok_n2">Thok's Tail Tip (N 4/4)</option>
+              <option value="thok" id="thok_hc2">Thok's Tail Tip (HC 4/4)</option>
+            </select>
+          </p>
+          <p><input type="checkbox" id="t2_toggle" oninput="calculate()" checked><label for="t2_toggle">Use Proc For Calculation</label></p>
+          <div style="display: none;" id="t2_mod_box"><p><input type="checkbox" id="t2_mod" oninput="calculate()"><label for="t2_mod" id="t2_mod_label"></label></p></div>
+        </div>
+      <h2 class="underline">Modifiers</h2>
+        <div class="left">
+          <div style="display: none;" id="amplify_box"><p><input type="checkbox" id="amplify" oninput="calculate()" checked><label for="amplify"> Mastery Amplify (From Thok's Tail Tip)</label></p></div>
+          <p><input type="checkbox" id="horn" oninput="calculate()"><label for="horn"> Horn of Winter (10% Attack Power) </label><img src="./img/horn.jpg" class="icon"></p>
+          <p><input type="checkbox" id="statbuff" oninput="calculate()"><label for="statbuff"> 5% Stat Buff </label><img src="./img/mark.jpg" class="icon"><img src="./img/blessing.jpg" class="icon"><img src="./img/legacy.jpg" class="icon"></p>
+          <p><input type="checkbox" id="masterybuff" oninput="calculate()"><label for="masterybuff"> 3000 Mastery Buff </label><img src="./img/blessingofmight.jpg" class="icon"><img src="./img/grace.jpg" class="icon"></p>
+          <p><input type="checkbox" id="swordguard" oninput="calculate()"><label for="swordguard" id="swordguard_dual"> Swordguard Embroidery (4000 Attack Power) </label><img src="./img/swordguard.jpg" class="icon"></p>
+          <p><input type="checkbox" id="synapse" oninput="calculate()"><label for="synapse"> Synapse Springs (1920 Strength) </label><img src="./img/synapse.jpg" class="icon"></p>
+          <p><input type="checkbox" id="fallen_crusader" oninput="calculate()"><label for="fallen_crusader"> Rune of the Fallen Crusader </label><img src="./img/fallen_crusader.jpg" class="icon"></p>
+          <p><input type="checkbox" id="trick" oninput="calculate()"><label for="trick"> Tricks of the Trade </label><img src="./img/trick.jpg" class="icon"></p><br>
+          <div id="lvl90">
+            <p><input type="checkbox" id="flask_90" oninput="calculate()"><label for="flask_90"> Flask of Winter's Bite (1000 Strength) </label><img src="./img/flask_90.jpg" class="icon"></p>
+            <p id="alchemy_bonus_box_90" style="padding-left: 15px; display: none;"><input type="checkbox" id="alchemy_bonus_90" oninput="calculate()"><label for="alchemy_bonus_90"> Alchemy Bonus (1320 Strength) <img src="./img/alchemy.jpg" class="icon"></label></p>
+            <p><input type="checkbox" id="food_90" oninput="calculate()"><label for="food_90"> Well Fed (300 Strength) </label><img src="./img/wellfed.jpg" class="icon"></p>
+            <p><input type="checkbox" id="potion_90" oninput="calculate()"><label for="potion_90"> Potion of Mogu Power (4000 Strength) </label><img src="./img/potion_90.jpg" class="icon"></p><br>
+          </div>
+          <div id="lvl80" style="display: none;">
+            <p><input type="checkbox" id="flask_80" oninput="calculate()"><label for="flask_80"> Flask of Titanic Strength (300 Strength) </label><img src="./img/flask_80.jpg" class="icon"></p>
+            <p id="alchemy_bonus_box_80" style="padding-left: 15px; display: none;"><input type="checkbox" id="alchemy_bonus_80" oninput="calculate()"><label for="alchemy_bonus_80"> Alchemy Bonus (380 Strength) <img src="./img/alchemy.jpg" class="icon"></label></p>
+            <p><input type="checkbox" id="food_80" oninput="calculate()"><label for="food_80"> Well Fed (77 Strength) </label><img src="./img/wellfed.jpg" class="icon"></p>
+            <p><input type="checkbox" id="potion_80" oninput="calculate()"><label for="potion_80"> Golemblood Potion (1200 Strength) </label><img src="./img/potion_80.jpg" class="icon"></p><br>
+          </div>
+          <p style="text-align: center;">T16 2-Piece Set Bonus (500 Mastery / Stack) <img src="./img/death_shroud.jpg" class="icon"></p>
+          <input type="range" min="0" max="10" value="0" style="width: 100%;" oninput="calculate()" id="setbonus">
+          <p id="display_stack" style="text-align: center;">0</p>
+        </div>
+    <h2 class="underline" id="nc_title"></h2>
+      <div class="left">
+        <p id="nc_str"></p>
+        <p id="nc_ap"></p>
+        <p id="nc_mastery"></p>
+        <p id="nc_bp"></p>
+        <p id="nc_ff"></p>
+      </div>
+    <h2 class="underline" id="burst_title"></h2>
+      <div class="left">
+        <p id="max_str"></p>
+        <p id="max_ap"></p>
+        <p id="max_mastery"></p>
+        <p id="max_bp"></p>
+        <p id="max_ff" style="margin-bottom: 20px;"></p>
+      </div>
+    </div>
+  </body>
+</html>
