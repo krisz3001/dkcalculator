@@ -69,9 +69,7 @@ function calculate(){
     id('synapse').disabled = false;
   }
   if(id('level_select').options[id('level_select').selectedIndex].value == 80){
-    id('t1_select').options[0].selected = true;
     id('t2_select').options[0].selected = true;
-    id('t1_select').disabled = true;
     id('t2_select').disabled = true;
     id('swordguard_dual').innerHTML = ' Swordguard Embroidery (400 Attack Power) ';
     id('setbonus').disabled = true;
@@ -82,11 +80,17 @@ function calculate(){
     id('food_90').checked = false;
     id('potion_90').checked = false;
     id('plus_ap').style.display = 'block';
-    id('t1_toggle').disabled = true;
     id('t2_toggle').disabled = true;
+    id('brutal_talisman1').style.display = 'none';
+    id('feather_n1').style.display = 'none';
+    id('feather_hc1').style.display = 'none';
+    id('galakras_n1').style.display = 'none';
+    id('galakras_hc1').style.display = 'none';
+    id('thok_n1').style.display = 'none';
+    id('thok_hc1').style.display = 'none';
+    id('greatness1').style.display = 'block';
   }
   else{
-    id('t1_select').disabled = false;
     id('t2_select').disabled = false;
     id('swordguard_dual').innerHTML = ' Swordguard Embroidery (4000 Attack Power) ';
     id('setbonus').disabled = false;
@@ -97,8 +101,14 @@ function calculate(){
     id('potion_80').checked = false;
     id('plus_ap').style.display = 'none';
     id('ap_from_gear').value = '';
-    id('t1_toggle').disabled = false;
     id('t2_toggle').disabled = false;
+    id('feather_n1').style.display = 'block';
+    id('feather_hc1').style.display = 'block';
+    id('galakras_n1').style.display = 'block';
+    id('galakras_hc1').style.display = 'block';
+    id('thok_n1').style.display = 'block';
+    id('thok_hc1').style.display = 'block';
+    id('greatness1').style.display = 'none';
   }
   //Basics
   var level = id('level_select').options[id('level_select').selectedIndex].value;
@@ -166,6 +176,10 @@ function calculate(){
   //T1
   if(id('t1_toggle').checked){
     switch(opt1_id){
+      case 'greatness1':{
+        t1_str = 300;
+        break;
+      }
       case 'brutal_talisman1':{
         t1_str = 9483;
         break;
@@ -329,7 +343,7 @@ function calculate(){
   id('display_stack').innerHTML = id('setbonus').value;
   setbonus_mastery = id('setbonus').value*500;
   //Results
-  var nc_str = strength*statbuff + (flask + food)*statbuff;
+  var nc_str = (strength + flask*1.35*1.05 + food*1.35*1.05)*statbuff;
   var nc_ap = ((level*3)+(nc_str*2-20)+ap_from_gear)*horn;
   var nc_mastery = ((base_mastery+masterybuff)*amplify/mastery_ratio)+20;
   var nc_bp = (197+nc_ap*0.158)*1.6*(nc_mastery/100+1)*trick;
