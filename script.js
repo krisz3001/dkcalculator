@@ -89,6 +89,7 @@ function calculate(){
     id('thok_n1').style.display = 'none';
     id('thok_hc1').style.display = 'none';
     id('greatness1').style.display = 'block';
+    if(!id('greatness1').selected) id('t1_select').options[0].selected = true;
   }
   else{
     id('t2_select').disabled = false;
@@ -102,6 +103,7 @@ function calculate(){
     id('plus_ap').style.display = 'none';
     id('ap_from_gear').value = '';
     id('t2_toggle').disabled = false;
+    id('brutal_talisman1').style.display = 'block';
     id('feather_n1').style.display = 'block';
     id('feather_hc1').style.display = 'block';
     id('galakras_n1').style.display = 'block';
@@ -109,6 +111,7 @@ function calculate(){
     id('thok_n1').style.display = 'block';
     id('thok_hc1').style.display = 'block';
     id('greatness1').style.display = 'none';
+    if(id('greatness1').selected) id('t1_select').options[0].selected = true;
   }
   //Basics
   var level = id('level_select').options[id('level_select').selectedIndex].value;
