@@ -11,11 +11,13 @@ function theme(){
     id('head').className = 'box_dark';
     id('main').className = 'box_dark';
     id('body').className = 'body_dark';
+	id('n').className = 'n_dark';
   }
   else{
     id('head').className = 'box_light';
     id('main').className = 'box_light';
     id('body').className = 'body_light';
+	id('n').className = 'n_light';
   }
 }
 function theme_switch(){
