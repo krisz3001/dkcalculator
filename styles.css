@@ -22,6 +22,12 @@
   background-color: rgb(51,51,51);
   color: white;
 }
+.n_dark{
+	color: rgb(51,51,51)
+}
+.n_light{
+	color: white
+}
 .underline{
   text-decoration: underline;
 }
