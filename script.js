@@ -26,6 +26,9 @@ function theme_switch(){
   theme();
   localStorage.setItem('theme', mode);
 }
+function nn(){
+  document.getElementById('n').innerHTML = 'N.N. < 3'
+}
 function onlynumber(e){
   var theEvent = e || window.event;
   var key = theEvent.keyCode || theEvent.which;
